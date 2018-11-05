@@ -1,0 +1,31 @@
+<p>
+  department-home works!
+</p>
+<p>
+  library-home works!
+</p>
+<form [formGroup]="docForm">
+	<label for ="dept">Department</label>
+	<div class="form-group">
+		<select id="dept" formControlName="dept">
+             <option *ngFor="let c of departments" [ngValue]="c">{{ c }}</option>
+        </select>
+	</div>
+	<label for ="course">Course</label>
+	<div class="form-group">
+		<select id="course" formControlName="course">
+             <option *ngFor="let c of courses" [ngValue]="c">{{ c }}</option>
+        </select>
+	</div>
+	<label for="semester">Semester</label>
+	<div class="form-group">
+		<select id="semester" formControlName="semester">
+             <option *ngFor="let c of semesters" [ngValue]="c">{{ c }}</option>
+        </select>
+	</div>
+</form>
+<br>
+<input id="doc" type="file" />
+<button type="button" class="btn btn-success btn-s" (click)="upload()">
+Upload
+</button>

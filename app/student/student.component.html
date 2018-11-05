@@ -1,0 +1,61 @@
+<p>
+  student works!
+</p>
+<div id="contentToPDF">
+<div>
+	<h4>Academic Details</h4>
+	Rollno : <strong>{{stu_data['rollno']}}</strong><br>
+	Department : <strong>{{stu_data['department']}}</strong><br>
+	Course : <strong>{{stu_data['course']}}</strong><br>
+	Semester : <strong>{{reg_data['semester']}}</strong><br>
+	Enrollment Year : <strong>{{stu_data['enrollment_year']}}</strong><br>
+</div>
+
+<div>
+	<h4>Personal Details</h4>
+	Name : <strong>{{reg_data['name']}}</strong><br>
+	Father/Gaurdian Name : <strong>{{reg_data['fathername']}}</strong><br>
+	Gender : <strong>{{reg_data['gender']}}</strong><br>
+	Date of Birth : <strong>{{reg_data['dob']}}</strong><br>
+
+</div>
+
+<div>
+	<h4>Contact Details</h4>
+	Corresspondance Address : <strong>{{reg_data['corresAddress']}}</strong><br>
+	Permanent Address : <strong>{{reg_data['permaAddress']}}</strong><br>
+	Mobile Number : <strong>{{reg_data['phone']}}</strong><br>
+	Parent's Number : <strong>{{reg_data['parentPhone']}}</strong><br>
+	Email Id : <strong>{{stu_data['email']}}</strong><br>
+	Parent's Email Id : <strong>{{reg_data['parentEmail']}}</strong><br>
+</div>
+
+<div>
+	<h4>Subject Opted</h4>
+	<table>
+    	<tr>
+    		<th>Sr No</th>
+    		<th>Subject Id</th>
+    		<th>Subject Name</th> 
+    		<th>L</th>
+    		<th>T</th>
+    		<th>P</th>
+  		</tr>
+  		<tr  *ngFor="let item of subs_data['data']; let i = index">
+  			<td>{{i}}</td>
+    		<td>{{item['sub_code']}}</td>
+    		<td>{{item['sub_name']}}</td> 
+    		<td>{{item['L_credits']}}</td>
+    		<td>{{item['T_credits']}}</td>
+    		<td>{{item['P_credits']}}</td>
+  		</tr>
+  		<tr>
+  			<td colspan="3"><strong>Total</strong></td>
+            <td>{{L_total}}</td>
+            <td>{{T_total}}</td>
+            <td>{{P_total}}</td>
+  		</tr>
+	</table>
+</div>
+</div><br><br>
+<button (click)="captureScreen()">Download</button>

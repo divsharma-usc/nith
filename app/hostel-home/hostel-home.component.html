@@ -1,0 +1,22 @@
+<p>
+  hostel-home works!
+</p>
+<form [formGroup]="hosteldocForm">
+	<div class="form-group">
+		<label for="year">Year</label><br>
+		<input type="text" formControlName="year" class="form-control"/>
+	    <div *ngIf="submitted && f.year.errors" class="invalid-feedback">
+        	<div *ngIf="f.year.errors.required">Year is required</div>
+        </div>
+	</div><br>
+	<div class="form-group">
+		<select id="semester" formControlName="semester">
+             <option *ngFor="let c of semester" [ngValue]="c">{{ c }}</option>
+        </select>
+	</div>
+</form>
+<br>
+<input id="doc" type="file" />
+<button type="button" class="btn btn-success btn-s" (click)="hostelupload()">
+Upload
+</button>

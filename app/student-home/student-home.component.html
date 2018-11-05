@@ -1,0 +1,50 @@
+<p>
+  student-home works!
+</p>
+
+<div *ngIf="!data_obj['studentStatus']">
+	<h3>Please login with Institute provided email Id</h3>
+</div>
+
+<div *ngIf="!data_obj['regStatus']">
+    <h3>Registration Process is not active</h3>
+</div>
+
+<div *ngIf="data_obj['regStatus'] && !data_obj['p1Status'] && !data_obj['p2Status']">
+	<h3>Registration Process Will Start from {{this.data_obj['p1startDate']}}</h3>
+</div>
+
+<div *ngIf="data_obj['regStatus'] && data_obj['p1Status'] && !data_obj['p2Status']">
+	<div>
+		<div *ngIf="data_obj['hostelFine'] == '0'">No Hostel Due</div>
+		<div *ngIf="data_obj['hostelFine'] != '0' ">Hostel Due is {{data_obj['hostelFine']}}</div>
+    </div>
+
+    <div>
+		<div *ngIf="data_obj['libraryFine'] == '0'">No Library Due</div>
+		<div *ngIf="data_obj['libraryFine'] != '0' ">Library Due is {{data_obj['libraryFine']}}</div>
+    </div>
+    <div>
+    	<h5>If you have dues clear them by {{data_obj['p1endDate']}} in order to proceed to registration Process</h5>
+    </div>
+</div>
+<div *ngIf="data_obj['regStatus'] && !data_obj['p1Status'] && data_obj['p2Status']">
+	<div>
+		<div *ngIf="data_obj['hostelFine'] == '0'">No Hostel Due</div>
+		<div *ngIf="data_obj['hostelFine'] != '0' ">Hostel Due is {{data_obj['hostelFine']}}</div>
+    </div>
+
+    <div>
+		<div *ngIf="data_obj['libraryFine'] == '0'">No Library Due</div>
+		<div *ngIf="data_obj['libraryFine'] != '0' ">Library Due is {{data_obj['libraryFine']}}</div>
+    </div>
+    <div>
+    	<div *ngIf="data_obj['libraryFine'] != '0' || data_obj['hostelFine'] !=0 ">
+    		<h4> You have Dues Left You can't Proceed to Online Registration Process</h4>
+    	</div>
+    	<div *ngIf="data_obj['libraryFine'] == '0' && data_obj['hostelFine'] ==0 ">
+            <button *ngIf="isRegistered" (click)="clicked2()"> Application </button>
+    		<button *ngIf="!isRegistered" (click)="clicked()"> Proceed to Registration </button>
+    	</div>
+    </div>
+</div>
